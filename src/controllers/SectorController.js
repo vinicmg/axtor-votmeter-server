@@ -44,22 +44,7 @@ module.exports = {
                 error: 'Ocorreu um erro ao criar um setor!'
             })
         }
-    },
-    // Put: Editar um setor
-    async put(req, res) {
-        try {
-            const sector = await Sector.update(req.body, {
-                where: {
-                    id: req.params.id
-                }
-            })
-            res.send(req.body)
-        } catch (err) {
-            res.status(500).send({
-                error: 'Ocorreu um erro ao editar o setor!'
-            })
-        }
-    },
+    },    
     // Delete: Deletar um registro de setor
     async delete(req, res) {
         try {
