@@ -4,7 +4,6 @@ const bodyParser = require('body-parser')
 const cors = require('cors')
 const morgan = require('morgan')
 const { sequelize } = require('./models')
-const config = require('./config/config')
 
 const app = express()
 app.use(morgan('combined'))
@@ -15,7 +14,7 @@ require('./routes')(app)
 
 sequelize.sync()
     .then(() => {        
-        app.listen(config.port, () => {
+        app.listen(db.port, () => {
             console.log('Server is running on port 8081')
         })
     });
