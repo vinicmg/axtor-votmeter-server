@@ -1,5 +1,6 @@
 const SectorController = require("./controllers/SectorController")
 const TechnicianController = require("./controllers/TechnicianController")
+const TypePlateController = require("./controllers/TypePlateController")
 
 module.exports = (app) => {
     // Rotas SETOR
@@ -27,5 +28,18 @@ module.exports = (app) => {
     )
     app.post('/cadastro/tecnico',
         TechnicianController.post
+    )
+    // Rotas TIPO DE PLACA
+    app.get('/tipodeplaca',
+        TypePlateController.get
+    )
+    app.delete('/tipodeplaca/:id',
+        TypePlateController.delete
+    )
+    app.put('/tipodeplaca/editar/:id',
+        TypePlateController.put
+    )
+    app.post('/cadastro/tipodeplaca',
+        TypePlateController.post
     )
 }
