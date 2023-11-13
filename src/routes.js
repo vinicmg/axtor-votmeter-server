@@ -1,5 +1,6 @@
 const ConfigController = require("./controllers/ConfigController")
 const PlateController = require("./controllers/PlateController")
+const ReportController = require("./controllers/ReportController")
 const SectorController = require("./controllers/SectorController")
 const TechnicianController = require("./controllers/TechnicianController")
 const TypePlateController = require("./controllers/TypePlateController")
@@ -69,5 +70,15 @@ module.exports = (app) => {
     )
     app.post('/cadastro/placa',
         PlateController.post
+    )
+    // Rotas RELATÓRIOS
+    app.get('/relatorios',
+        ReportController.get
+    )
+    app.put('/relatorios/editar/:id',
+        ReportController.put
+    )
+    app.post('/relatorios/novo',
+        ReportController.post
     )
 }
