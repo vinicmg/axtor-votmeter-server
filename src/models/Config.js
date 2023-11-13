@@ -6,7 +6,8 @@ const {
 module.exports = (sequelize, DataTypes) => {
     class Config extends Model {
         static associate(models) {
-            this.hasMany(models.Config, { foreignKey: 'id_config' })        
+            this.hasMany(models.Plate, { foreignKey: 'id_config' })        
+            this.hasMany(models.Report, { foreignKey: 'id_config' })
         }
     }
 

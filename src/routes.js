@@ -1,3 +1,4 @@
+const ConfigController = require("./controllers/ConfigController")
 const SectorController = require("./controllers/SectorController")
 const TechnicianController = require("./controllers/TechnicianController")
 const TypePlateController = require("./controllers/TypePlateController")
@@ -41,5 +42,18 @@ module.exports = (app) => {
     )
     app.post('/cadastro/tipodeplaca',
         TypePlateController.post
+    )
+    // Rotas CONFIG
+    app.get('/configuracao',
+        ConfigController.get
+    )
+    app.delete('/configuracao/:id',
+        ConfigController.delete
+    )
+    app.put('/configuracao/editar/:id',
+        ConfigController.put
+    )
+    app.post('/cadastro/configuracao',
+        ConfigController.post
     )
 }
