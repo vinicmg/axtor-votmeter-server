@@ -38,8 +38,7 @@ module.exports = (sequelize, DataTypes) => {
                 model: 'Technicians',
                 key: 'id',
             }
-        },
-        dt_criacao: DataTypes.DATE,
+        }
     }, {
         sequelize,
         modelName: 'Plate'
