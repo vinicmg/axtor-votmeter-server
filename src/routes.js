@@ -7,78 +7,78 @@ const TypePlateController = require("./controllers/TypePlateController")
 
 module.exports = (app) => {
     // Rotas SETOR
-    app.get('/setor',
+    app.get('/api/setor',
         SectorController.get
     )    
-    app.delete('/setor/:id',
+    app.delete('/api/setor/:id',
         SectorController.delete
     )
-    app.put('/setor/editar/:id',
+    app.put('/api/setor/editar/:id',
         SectorController.put
     )
-    app.post('/cadastro/setor',
+    app.post('/api/cadastro/setor',
         SectorController.post
     )
     // Rotas TECNICO
-    app.get('/tecnico',
+    app.get('/api/tecnico',
         TechnicianController.get
     )
-    app.delete('/tecnico/:id',
+    app.delete('/api/tecnico/:id',
         TechnicianController.delete
     )
-    app.put('/tecnico/editar/:id',
+    app.put('/api/tecnico/editar/:id',
         TechnicianController.put
     )
-    app.post('/cadastro/tecnico',
+    app.post('/api/cadastro/tecnico',
         TechnicianController.post
     )
     // Rotas TIPO DE PLACA
-    app.get('/tipodeplaca',
+    app.get('/api/tipodeplaca',
         TypePlateController.get
     )
-    app.delete('/tipodeplaca/:id',
+    app.delete('/api/tipodeplaca/:id',
         TypePlateController.delete
     )
-    app.put('/tipodeplaca/editar/:id',
+    app.put('/api/tipodeplaca/editar/:id',
         TypePlateController.put
     )
-    app.post('/cadastro/tipodeplaca',
+    app.post('/api/cadastro/tipodeplaca',
         TypePlateController.post
     )
     // Rotas CONFIG
-    app.get('/configuracao',
+    app.get('/api/configuracao',
         ConfigController.get
     )
-    app.delete('/configuracao/:id',
+    app.delete('/api/configuracao/:id',
         ConfigController.delete
     )
-    app.put('/configuracao/editar/:id',
+    app.put('/api/configuracao/editar/:id',
         ConfigController.put
     )
-    app.post('/cadastro/configuracao',
+    app.post('/api/cadastro/configuracao',
         ConfigController.post
     )
     // Rotas PLATE
-    app.get('/placa',
+    app.get('/api/placa',
         PlateController.get
     )
-    app.delete('/placa/:id',
+    app.delete('/api/placa/:id',
         PlateController.delete
     )
-    app.put('/placa/editar/:id',
+    app.put('/api/placa/editar/:id',
         PlateController.put
     )
-    app.post('/cadastro/placa',
+    app.post('/api/cadastro/placa',
         PlateController.post
     )
     // Rotas RELATÓRIOS
-    app.get('/relatorios',
+    app.get('/api/relatorios',
         ReportController.get
     )
-    app.put('/relatorios/editar/:id',
+    app.put('/api/relatorios/editar/:id',
         ReportController.put
     )
-    app.post('/relatorios/novo',
+    app.post('/api/relatorios/novo',
         ReportController.post
     )
 }
