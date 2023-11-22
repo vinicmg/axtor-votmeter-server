@@ -18,7 +18,6 @@ module.exports = (sequelize, DataTypes) => {
             primaryKey: true,
             autoIncrement: true,
         },
-        dt_criacao: DataTypes.DATE,
         dt_inicial: DataTypes.DATE,
         dt_final: DataTypes.DATE,
         num_serie: DataTypes.INTEGER,

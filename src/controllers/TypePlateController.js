@@ -36,8 +36,7 @@ module.exports = {
         try {
             const typePlateBody = {
                 nome: req.body.nome,
-                modelo: req.body.modelo,
-                dt_criacao: req.body.dt_criacao
+                modelo: req.body.modelo,            
             }
 
             const typePlate = await TypePlate.create(typePlateBody)

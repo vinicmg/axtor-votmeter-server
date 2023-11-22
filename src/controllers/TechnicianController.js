@@ -1,4 +1,4 @@
-const { Technician } = require('../models')
+const { Technician, Sector } = require('../models')
 
 module.exports = {
     // Get: Buscar os valores para exibição em tela
@@ -20,6 +20,9 @@ module.exports = {
                 })
             } else {
                 technician = await Technician.findAll({
+                    include: [{
+                        model: Sector
+                    }],
                     limit: 50
                 })
             }

@@ -18,7 +18,6 @@ module.exports = (sequelize, DataTypes) => {
         },
         nome: DataTypes.STRING,
         modelo: DataTypes.STRING,
-        dt_criacao: DataTypes.DATE
     }, {
         sequelize,
         modelName: 'TypePlate'
