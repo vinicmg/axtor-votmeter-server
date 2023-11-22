@@ -1,47 +1,48 @@
-'use strict'
-const {
-    Model, DataTypes
-} = require('sequelize')
+"use strict";
+const { Model, DataTypes } = require("sequelize");
 
 module.exports = (sequelize, DataTypes) => {
-    class Plate extends Model {
-        static associate(models) {
-            this.belongsTo(models.TypePlate, { foreignKey: 'id_tp_placa' })
-            this.belongsTo(models.Config, { foreignKey: 'id_config' })
-            this.belongsTo(models.Technician, { foreignKey: 'id_tecnico' })
-        }
+  class Plate extends Model {
+    static associate(models) {
+      this.belongsTo(models.TypePlate, { foreignKey: "id_tp_placa" });
+      this.belongsTo(models.Config, { foreignKey: "id_config" });
+      this.belongsTo(models.Technician, { foreignKey: "id_tecnico" });
     }
+  }
 
-    Plate.init({
-        id: {
-            type: DataTypes.INTEGER,
-            primaryKey: true,
-            autoIncrement: true,
+  Plate.init(
+    {
+      id: {
+        type: DataTypes.INTEGER,
+        primaryKey: true,
+        autoIncrement: true,
+      },
+      id_tp_placa: {
+        type: DataTypes.INTEGER,
+        references: {
+          model: "TypePlates",
+          key: "id",
         },
-        id_tp_placa: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: 'TypePlates',
-                key: 'id',
-            }
+      },
+      id_config: {
+        type: DataTypes.INTEGER,
+        references: {
+          model: "Configs",
+          key: "id",
         },
-        id_config: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: 'Configs',
-                key: 'id',
-            }
+      },
+      id_tecnico: {
+        type: DataTypes.INTEGER,
+        references: {
+          model: "Technicians",
+          key: "id",
         },
-        id_tecnico: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: 'Technicians',
-                key: 'id',
-            }
-        }
-    }, {
-        sequelize,
-        modelName: 'Plate'
-    });
-    return Plate;
-}
+      },
+    },
+    {
+      sequelize,
+      modelName: "Plate",
+    }
+  );
+  return Plate;
+};
