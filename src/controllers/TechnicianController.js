@@ -1,20 +1,40 @@
 const { Technician, Sector } = require("../models");
+const { Op } = require("sequelize");
 
 module.exports = {
   // Get: Buscar os valores para exibição em tela
   async get(req, res) {
     try {
       let technician = null;
-      const search = req.query.search;
-      if (search) {
+      const { nome, createdAt, setornome } = req.query;
+      let query = {};
+      let querySector = {};
+
+      if (nome != null) {
+        query.nome = {
+          [Op.iLike]: `%${nome}%`,
+        };
+      }
+      if (createdAt != null) {
+        query.createdAt = {
+          [Op.gt]: createdAt,
+        };
+      }
+      if (setornome != null) {
+        querySector.nome = {
+          [Op.iLike]: `%${setornome}%`,
+        };
+      }
+
+      if (nome || setornome || createdAt) {
         technician = await Technician.findAll({
-          where: {
-            $or: ["nome"].map((key) => ({
-              [key]: {
-                $like: `%${search}%`,
-              },
-            })),
-          },
+          include: [
+            {
+              model: Sector,
+              where: querySector,
+            },
+          ],
+          where: query,
         });
       } else {
         technician = await Technician.findAll({

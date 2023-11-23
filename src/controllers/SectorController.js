@@ -1,28 +1,38 @@
 const { Sector } = require("../models");
+const { Op } = require("sequelize");
 
 module.exports = {
   // get: Buscar os valores para exibição em tela
   async get(req, res) {
     try {
       let sector = null;
-      const search = req.query.search;
-      if (search) {
+      const { nome, createdAt } = req.query;
+      let query = {};
+
+      if (nome != null) {
+        query.nome = {
+          [Op.iLike]: `%${nome}%`,
+        };
+      }
+      if (createdAt != null) {
+        query.createdAt = {
+          [Op.gt]: createdAt,
+        };
+      }
+
+      if (nome || createdAt) {
         sector = await Sector.findAll({
-          where: {
-            $or: ["nome"].map((key) => ({
-              [key]: {
-                $like: `%${search}%`,
-              },
-            })),
-          },
+          where: query,
         });
       } else {
         sector = await Sector.findAll({
           limit: 50,
         });
       }
+
       res.send(sector);
     } catch (err) {
+      console.log(err);
       res.status(500).send({
         error: "Ocorreu um erro ao buscar os setores!",
       });
