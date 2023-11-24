@@ -1,20 +1,35 @@
 const { TypePlate } = require("../models");
+const { Op } = require("sequelize");
 
 module.exports = {
   // Get: Buscar os valores de tipo de placa
   async get(req, res) {
     try {
       let typePlate = null;
-      const search = req.query.search;
-      if (search) {
+      const { nome, createdAt, modelo } = req.query;
+      let query = {};
+
+      if (nome != null) {
+        query.nome = {
+          [Op.iLike]: `%${nome}%`,
+        };
+      }
+
+      if (createdAt != null) {
+        query.createdAt = {
+          [Op.gt]: createdAt,
+        };
+      }
+
+      if (modelo != null) {
+        query.modelo = {
+          [Op.iLike]: `%${modelo}%`,
+        };
+      }
+
+      if (nome || createdAt || modelo) {
         typePlate = await TypePlate.findAll({
-          where: {
-            $or: ["nome", "modelo"].map((key) => ({
-              [key]: {
-                $like: `%${search}%`,
-              },
-            })),
-          },
+          where: query,
         });
       } else {
         typePlate = await TypePlate.findAll({

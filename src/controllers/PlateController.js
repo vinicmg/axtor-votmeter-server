@@ -1,20 +1,35 @@
 const { Plate } = require("../models");
+const { Op } = require("sequelize");
 
 module.exports = {
   // Get: Buscar os valores para exibição em tela
   async get(req, res) {
     try {
       let plate = null;
-      const search = req.query.search;
-      if (search) {
+      const { nome, createdAt, status } = req.query;
+      let query = {};
+
+      if (nome != null) {
+        query.nome = {
+          [Op.iLike]: `%${nome}%`,
+        };
+      }
+
+      if (createdAt != null) {
+        query.createdAt = {
+          [Op.gt]: createdAt,
+        };
+      }
+
+      if (status != null) {
+        query.status = {
+          [Op.eq]: status,
+        };
+      }
+
+      if (nome || createdAt || status) {
         plate = await Plate.findAll({
-          where: {
-            $or: ["nome"].map((key) => ({
-              [key]: {
-                $like: `%${search}%`,
-              },
-            })),
-          },
+          where: query,
         });
       } else {
         plate = await Plate.findAll({
@@ -33,6 +48,9 @@ module.exports = {
     try {
       const plateBody = {
         nome: req.body.nome,
+        num_serie: req.body.num_serie,
+        status: req.body.status,
+        ultimo_passo: req.body.status,
         id_tp_placa: req.body.id_tp_placa,
         id_config: req.body.id_config,
         id_tecnico: req.body.id_tecnico,

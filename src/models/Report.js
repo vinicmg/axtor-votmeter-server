@@ -19,7 +19,7 @@ module.exports = (sequelize, DataTypes) => {
       },
       dt_inicial: DataTypes.DATE,
       dt_final: DataTypes.DATE,
-      num_serie: DataTypes.INTEGER,
+      num_serie: DataTypes.STRING,
       id_tp_placa: {
         type: DataTypes.INTEGER,
         references: {

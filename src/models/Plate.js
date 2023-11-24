@@ -38,6 +38,10 @@ module.exports = (sequelize, DataTypes) => {
           key: "id",
         },
       },
+      nome: DataTypes.STRING,
+      num_serie: DataTypes.STRING,
+      status: DataTypes.INTEGER,
+      ultimo_passo: DataTypes.INTEGER,
     },
     {
       sequelize,
