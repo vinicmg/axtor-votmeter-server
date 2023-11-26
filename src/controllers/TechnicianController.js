@@ -28,6 +28,7 @@ module.exports = {
 
       if (nome || setornome || createdAt) {
         technician = await Technician.findAll({
+          order: [["id", "ASC"]],
           include: [
             {
               model: Sector,
@@ -38,6 +39,7 @@ module.exports = {
         });
       } else {
         technician = await Technician.findAll({
+          order: [["id", "ASC"]],
           include: [
             {
               model: Sector,

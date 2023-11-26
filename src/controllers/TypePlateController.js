@@ -29,10 +29,12 @@ module.exports = {
 
       if (nome || createdAt || modelo) {
         typePlate = await TypePlate.findAll({
+          order: [["id", "ASC"]],
           where: query,
         });
       } else {
         typePlate = await TypePlate.findAll({
+          order: [["id", "ASC"]],
           limit: 50,
         });
       }

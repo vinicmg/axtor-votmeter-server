@@ -8,6 +8,7 @@ module.exports = {
       const search = req.query.search;
       if (search) {
         report = await Report.findAll({
+          order: [["id", "ASC"]],
           where: {
             $or: ["dt_inicial", "dt_final", "num_serie"].map((key) => ({
               [key]: {
@@ -18,6 +19,7 @@ module.exports = {
         });
       } else {
         report = await Report.findAll({
+          order: [["id", "ASC"]],
           limit: 50,
         });
       }

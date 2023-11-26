@@ -1,4 +1,4 @@
-const { Plate } = require("../models");
+const { Plate, Technician } = require("../models");
 const { Op } = require("sequelize");
 
 module.exports = {
@@ -30,9 +30,21 @@ module.exports = {
       if (nome || createdAt || status) {
         plate = await Plate.findAll({
           where: query,
+          order: [["updatedAt", "DESC"]],
+          include: [
+            {
+              model: Technician,
+            },
+          ],
         });
       } else {
         plate = await Plate.findAll({
+          order: [["updatedAt", "DESC"]],
+          include: [
+            {
+              model: Technician,
+            },
+          ],
           limit: 50,
         });
       }

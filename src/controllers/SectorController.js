@@ -22,17 +22,18 @@ module.exports = {
 
       if (nome || createdAt) {
         sector = await Sector.findAll({
+          order: [["id", "ASC"]],
           where: query,
         });
       } else {
         sector = await Sector.findAll({
+          order: [["id", "ASC"]],
           limit: 50,
         });
       }
 
       res.send(sector);
     } catch (err) {
-      console.log(err);
       res.status(500).send({
         error: "Ocorreu um erro ao buscar os setores!",
       });

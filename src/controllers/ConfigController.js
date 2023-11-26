@@ -23,10 +23,12 @@ module.exports = {
 
       if (nome || createdAt) {
         config = await Config.findAll({
+          order: [["id", "ASC"]],
           where: query,
         });
       } else {
         config = await Config.findAll({
+          order: [["id", "ASC"]],
           limit: 50,
         });
       }
