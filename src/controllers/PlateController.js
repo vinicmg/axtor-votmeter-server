@@ -6,8 +6,14 @@ module.exports = {
   async get(req, res) {
     try {
       let plate = null;
-      const { nome, createdAt, status } = req.query;
+      const { id, nome, createdAt, status } = req.query;
       let query = {};
+
+      if (id != null) {
+        query.id = {
+          [Op.eq]: id,
+        };
+      }
 
       if (nome != null) {
         query.nome = {
@@ -27,7 +33,7 @@ module.exports = {
         };
       }
 
-      if (nome || createdAt || status) {
+      if (id || nome || createdAt || status) {
         plate = await Plate.findAll({
           where: query,
           order: [["updatedAt", "DESC"]],
