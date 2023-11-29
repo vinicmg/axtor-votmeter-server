@@ -41,8 +41,6 @@ module.exports = (sequelize, DataTypes) => {
       trim_rv10: DataTypes.DOUBLE,
       osc_5_min: DataTypes.DOUBLE,
       osc_5_max: DataTypes.DOUBLE,
-      osc_gnd_min: DataTypes.DOUBLE,
-      osc_gnd_max: DataTypes.DOUBLE,
       osc_12_min: DataTypes.DOUBLE,
       osc_12_max: DataTypes.DOUBLE,
       osc_neg12_min: DataTypes.DOUBLE,

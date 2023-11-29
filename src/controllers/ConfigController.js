@@ -68,8 +68,6 @@ module.exports = {
         trim_rv10: req.body.trim_rv10,
         osc_5_min: req.body.osc_5_min,
         osc_5_max: req.body.osc_5_max,
-        osc_gnd_min: req.body.osc_gnd_min,
-        osc_gnd_max: req.body.osc_gnd_max,
         osc_12_min: req.body.osc_12_min,
         osc_12_max: req.body.osc_12_max,
         osc_neg12_min: req.body.osc_neg12_min,
