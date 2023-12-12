@@ -41,7 +41,7 @@ module.exports = (sequelize, DataTypes) => {
       nome: DataTypes.STRING,
       num_serie: DataTypes.STRING,
       status: DataTypes.INTEGER,
-      ultimo_passo: DataTypes.INTEGER,
+      etapas: DataTypes.JSON,
     },
     {
       sequelize,

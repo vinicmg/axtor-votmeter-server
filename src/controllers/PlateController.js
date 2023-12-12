@@ -68,7 +68,7 @@ module.exports = {
         nome: req.body.nome,
         num_serie: req.body.num_serie,
         status: req.body.status,
-        ultimo_passo: req.body.status,
+        etapas: req.body.etapas,
         id_tp_placa: req.body.id_tp_placa,
         id_config: req.body.id_config,
         id_tecnico: req.body.id_tecnico,
