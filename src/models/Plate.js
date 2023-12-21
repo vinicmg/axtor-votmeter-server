@@ -6,7 +6,11 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       this.belongsTo(models.TypePlate, { foreignKey: "id_tp_placa" });
       this.belongsTo(models.Config, { foreignKey: "id_config" });
-      this.belongsTo(models.Technician, { foreignKey: "id_tecnico" });
+      this.hasOne(models.StepMechanical, { foreignKey: "id_placa" });
+      this.hasOne(models.StepElectronic, { foreignKey: "id_placa" });
+      this.hasOne(models.StepElectric, { foreignKey: "id_placa" });
+      this.hasOne(models.StepQuality, { foreignKey: "id_placa" });
+      this.hasOne(models.StepPacking, { foreignKey: "id_placa" });
     }
   }
 
@@ -31,17 +35,10 @@ module.exports = (sequelize, DataTypes) => {
           key: "id",
         },
       },
-      id_tecnico: {
-        type: DataTypes.INTEGER,
-        references: {
-          model: "Technicians",
-          key: "id",
-        },
-      },
       nome: DataTypes.STRING,
       num_serie: DataTypes.STRING,
       status: DataTypes.INTEGER,
-      etapas: DataTypes.JSON,
+      tecnicos_setores: DataTypes.JSON,
     },
     {
       sequelize,

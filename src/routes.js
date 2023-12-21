@@ -2,6 +2,11 @@ const ConfigController = require("./controllers/ConfigController");
 const PlateController = require("./controllers/PlateController");
 const ReportController = require("./controllers/ReportController");
 const SectorController = require("./controllers/SectorController");
+const StepElectricController = require("./controllers/StepElectricController");
+const StepElectronicController = require("./controllers/StepElectronicController");
+const StepMechanicalController = require("./controllers/StepMechanicalController");
+const StepPackingController = require("./controllers/StepPackingController");
+const StepQualityController = require("./controllers/StepQualityController");
 const TechnicianController = require("./controllers/TechnicianController");
 const TypePlateController = require("./controllers/TypePlateController");
 
@@ -35,4 +40,20 @@ module.exports = (app) => {
   app.get("/api/relatorios", ReportController.get);
   app.put("/api/relatorios/editar/:id", ReportController.put);
   app.post("/api/relatorios/novo", ReportController.post);
+  // Rotas Etapas de Setor
+  app.get("/api/etapas/eletrica/:id", StepElectricController.get);
+  app.get("/api/etapas/eletronica/:id", StepElectronicController.get);
+  app.get("/api/etapas/mecanica/:id", StepMechanicalController.get);
+  app.get("/api/etapas/qualidade/:id", StepQualityController.get);
+  app.get("/api/etapas/embalagem/:id", StepQualityController.get);
+  app.put("/api/etapas/eletrica/:id", StepElectricController.put);
+  app.put("/api/etapas/eletronica/:id", StepElectronicController.put);
+  app.put("/api/etapas/mecanica/:id", StepMechanicalController.put);
+  app.put("/api/etapas/qualidade/:id", StepQualityController.put);
+  app.put("/api/etapas/embalagem/:id", StepPackingController.put);
+  app.post("/api/cadastro/etapas/eletrica", StepElectricController.post);
+  app.post("/api/cadastro/etapas/eletronica", StepElectronicController.post);
+  app.post("/api/cadastro/etapas/mecanica", StepMechanicalController.post);
+  app.post("/api/cadastro/etapas/qualidade", StepQualityController.post);
+  app.post("/api/cadastro/etapas/embalagem", StepPackingController.post);
 };
