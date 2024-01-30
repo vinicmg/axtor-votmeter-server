@@ -41,11 +41,11 @@ module.exports = (app) => {
   app.put("/api/relatorios/editar/:id", ReportController.put);
   app.post("/api/relatorios/novo", ReportController.post);
   // Rotas Etapas de Setor
-  app.get("/api/etapas/eletrica/:id", StepElectricController.get);
-  app.get("/api/etapas/eletronica/:id", StepElectronicController.get);
-  app.get("/api/etapas/mecanica/:id", StepMechanicalController.get);
-  app.get("/api/etapas/qualidade/:id", StepQualityController.get);
-  app.get("/api/etapas/embalagem/:id", StepQualityController.get);
+  app.get("/api/etapas/eletrica", StepElectricController.get);
+  app.get("/api/etapas/eletronica", StepElectronicController.get);
+  app.get("/api/etapas/mecanica", StepMechanicalController.get);
+  app.get("/api/etapas/qualidade", StepQualityController.get);
+  app.get("/api/etapas/embalagem", StepQualityController.get);
   app.put("/api/etapas/eletrica/:id", StepElectricController.put);
   app.put("/api/etapas/eletronica/:id", StepElectronicController.put);
   app.put("/api/etapas/mecanica/:id", StepMechanicalController.put);

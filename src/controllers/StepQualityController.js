@@ -19,7 +19,7 @@ module.exports = {
       res.send(stepQuality);
     } catch (err) {
       res.status(500).send({
-        error: "Ocorreu um erro ao buscar as etapas mecânicas!",
+        error: "Ocorreu um erro ao buscar as etapas de qualidade!",
       });
     }
   },
@@ -29,21 +29,20 @@ module.exports = {
         id_tecnico: req.body.id_tecnico,
         id_placa: req.body.id_placa,
         status: req.body.status,
-        ultima_etapa: 0,
-        //etapas: req.body.etapas,
+        dados: req.body.dados,
       };
 
       const stepQuality = await StepQuality.create(stepBody);
       res.send(stepQuality);
     } catch (err) {
       res.status(500).send({
-        error: "Ocorreu um erro ao criar um setor!",
+        error: "Ocorreu um erro ao criar etapa de qualidade!",
       });
     }
   },
   async put(req, res) {
     try {
-      await StepElectric.update(req.body, {
+      await StepQuality.update(req.body, {
         where: {
           id: req.params.id,
         },
