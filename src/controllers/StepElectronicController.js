@@ -30,7 +30,7 @@ module.exports = {
         id_placa: req.body.id_placa,
         status: req.body.status,
         ultima_etapa: 0,
-        //etapas: req.body.etapas,
+        dados: req.body.dados,
       };
 
       const stepElectronic = await StepElectronic.create(stepBody);
