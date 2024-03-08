@@ -37,7 +37,7 @@ module.exports = {
       res.send(stepMechanical);
     } catch (err) {
       res.status(500).send({
-        error: "Ocorreu um erro ao criar um setor!",
+        error: "Ocorreu um erro ao criar uma etapa mecânica!",
       });
     }
   },
@@ -51,7 +51,7 @@ module.exports = {
       res.send(req.body);
     } catch (err) {
       res.status(500).send({
-        error: "Um erro ocorreu ao tentar editar o setor!",
+        error: "Um erro ocorreu ao tentar editar a etapa mecânica!",
       });
     }
   },

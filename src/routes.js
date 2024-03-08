@@ -45,7 +45,7 @@ module.exports = (app) => {
   app.get("/api/etapas/eletronica", StepElectronicController.get);
   app.get("/api/etapas/mecanica", StepMechanicalController.get);
   app.get("/api/etapas/qualidade", StepQualityController.get);
-  app.get("/api/etapas/embalagem", StepQualityController.get);
+  app.get("/api/etapas/embalagem", StepPackingController.get);
   app.put("/api/etapas/eletrica/:id", StepElectricController.put);
   app.put("/api/etapas/eletronica/:id", StepElectronicController.put);
   app.put("/api/etapas/mecanica/:id", StepMechanicalController.put);

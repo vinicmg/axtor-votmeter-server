@@ -28,9 +28,7 @@ module.exports = {
       const stepBody = {
         id_tecnico: req.body.id_tecnico,
         id_placa: req.body.id_placa,
-        status: req.body.status,
-        ultima_etapa: 0,
-        //etapas: req.body.etapas,
+        status: req.body.status,        
       };
 
       const stepPacking = await StepPacking.create(stepBody);
