@@ -33,7 +33,7 @@ module.exports = (sequelize, DataTypes) => {
       ultima_etapa: DataTypes.INTEGER,
       dados: DataTypes.JSON,
     },
-    {
+    {      
       sequelize,
       modelName: "StepElectronic",
     }

@@ -38,7 +38,6 @@ module.exports = (sequelize, DataTypes) => {
       nome: DataTypes.STRING,
       num_serie: DataTypes.STRING,
       status: DataTypes.INTEGER,
-      tecnicos_setores: DataTypes.JSON,
     },
     {
       sequelize,

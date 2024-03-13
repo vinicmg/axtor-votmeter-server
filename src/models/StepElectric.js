@@ -31,9 +31,8 @@ module.exports = (sequelize, DataTypes) => {
       },
       status: DataTypes.INTEGER,
       ultima_etapa: DataTypes.INTEGER,
-      //etapas: DataTypes.JSON,
     },
-    {
+    {      
       sequelize,
       modelName: "StepElectric",
     }
