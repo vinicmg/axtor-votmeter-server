@@ -1,4 +1,11 @@
-const { Plate, Technician } = require("../models");
+const {
+  Plate,
+  StepElectric,
+  StepElectronic,
+  StepQuality,
+  StepMechanical,
+  StepPacking,
+} = require("../models");
 const { Op } = require("sequelize");
 
 module.exports = {
@@ -35,22 +42,46 @@ module.exports = {
 
       if (id || nome || createdAt || status) {
         plate = await Plate.findAll({
-          where: query,
-          order: [["updatedAt", "DESC"]],
           include: [
             {
-              model: Technician,
+              model: StepElectric,
+            },
+            {
+              model: StepElectronic,
+            },
+            {
+              model: StepMechanical,
+            },
+            {
+              model: StepQuality,
+            },
+            {
+              model: StepPacking,
             },
           ],
+          where: query,
+          order: [["updatedAt", "DESC"]],
         });
       } else {
         plate = await Plate.findAll({
-          order: [["updatedAt", "DESC"]],
           include: [
             {
-              model: Technician,
+              model: StepElectric,
+            },
+            {
+              model: StepElectronic,
+            },
+            {
+              model: StepMechanical,
+            },
+            {
+              model: StepQuality,
+            },
+            {
+              model: StepPacking,
             },
           ],
+          order: [["updatedAt", "DESC"]],
           limit: 50,
         });
       }
@@ -68,10 +99,9 @@ module.exports = {
         nome: req.body.nome,
         num_serie: req.body.num_serie,
         status: req.body.status,
-        ultimo_passo: req.body.status,
         id_tp_placa: req.body.id_tp_placa,
         id_config: req.body.id_config,
-        id_tecnico: req.body.id_tecnico,
+        tecnicos_setores: req.body.tecnicos_setores,
       };
 
       const plate = await Plate.create(plateBody);

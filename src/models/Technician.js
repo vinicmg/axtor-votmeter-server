@@ -5,7 +5,11 @@ module.exports = (sequelize, DataTypes) => {
   class Technician extends Model {
     static associate(models) {
       this.belongsTo(models.Sector, { foreignKey: "id_setor" });
-      this.hasMany(models.Plate, { foreignKey: "id_tecnico" });
+      this.hasMany(models.StepMechanical, { foreignKey: "id_tecnico" });
+      this.hasMany(models.StepElectronic, { foreignKey: "id_tecnico" });
+      this.hasMany(models.StepElectric, { foreignKey: "id_tecnico" });
+      this.hasMany(models.StepQuality, { foreignKey: "id_tecnico" });
+      this.hasMany(models.StepPacking, { foreignKey: "id_tecnico" });
     }
   }
 
