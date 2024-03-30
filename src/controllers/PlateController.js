@@ -88,7 +88,7 @@ module.exports = {
       res.send(plate);
     } catch (err) {
       res.status(500).send({
-        error: "Ocorreu um erro ao buscar as placas!",
+        error: "Ocorreu um erro ao buscar os equipamentos!",
       });
     }
   },

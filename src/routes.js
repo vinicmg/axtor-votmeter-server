@@ -32,10 +32,10 @@ module.exports = (app) => {
   app.put("/api/configuracao/editar/:id", ConfigController.put);
   app.post("/api/cadastro/configuracao", ConfigController.post);
   // Rotas PLATE
-  app.get("/api/placa", PlateController.get);
-  app.delete("/api/placa/:id", PlateController.delete);
-  app.put("/api/placa/editar/:id", PlateController.put);
-  app.post("/api/cadastro/placa", PlateController.post);
+  app.get("/api/equipamentos", PlateController.get);
+  app.delete("/api/equipamentos/:id", PlateController.delete);
+  app.put("/api/equipamentos/editar/:id", PlateController.put);
+  app.post("/api/cadastro/equipamentos", PlateController.post);
   // Rotas RELATÓRIOS
   app.get("/api/relatorios", ReportController.get);
   app.put("/api/relatorios/editar/:id", ReportController.put);
