@@ -102,6 +102,7 @@ module.exports = {
         id_tp_placa: req.body.id_tp_placa,
         id_config: req.body.id_config,
         tecnicos_setores: req.body.tecnicos_setores,
+        arquivo: req.body.arquivo,
       };
 
       const plate = await Plate.create(plateBody);
