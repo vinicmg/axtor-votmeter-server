@@ -38,6 +38,7 @@ module.exports = (sequelize, DataTypes) => {
       nome: DataTypes.STRING,
       num_serie: DataTypes.STRING,
       status: DataTypes.INTEGER,
+      arquivo: DataTypes.TEXT,
     },
     {
       sequelize,
