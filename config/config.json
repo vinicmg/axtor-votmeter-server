@@ -7,14 +7,14 @@
     "dialect": "postgres"
   },
   "test": {
-    "username": "root",
+    "username": "postgres",
     "password": "postgres",
     "database": "axtor",
     "host": "localhost",
     "dialect": "postgres"
   },
   "production": {
-    "username": "root",
+    "username": "postgres",
     "password": "postgres",
     "database": "axtor",
     "host": "localhost",
