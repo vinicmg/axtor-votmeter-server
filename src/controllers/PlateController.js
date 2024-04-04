@@ -147,6 +147,7 @@ module.exports = {
       });
       res.send(req.body);
     } catch (err) {
+      console.log(err);
       res.status(500).send({
         error: "Um erro ocorreu ao tentar editar a placa!",
       });
